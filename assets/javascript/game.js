@@ -1,6 +1,7 @@
-const movieBank = ['evil dead', 'alien', 'the thing'];
+const movieBank = ['jaws', 'alien', 'it'];
 const letterBank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 const guessedLetters = [];
+const solution = [];
 let winCount = 0;
 let LossCount = 0;
 console.log(movieBank);
@@ -21,13 +22,25 @@ document.onkeyup = function (event) {
 
 
     if (movie.includes(userGuess)===true) {
+        
+        console.log(`${userGuess} is in there`);
+        console.log(solution)
+        console.log(guessedLetters)
+        return solution.push(userGuess) && guessedLetters.push(userGuess);
+        
+    } else if (solution === movie) {
+        console.log('you win');
         console.log(winCount++);
-        console.log(`${userGuess} is in there`)
-        console.log(guessedLetters.push[userGuess]);
-    } else {
-        console.log(guessesLeft--);
-        console.log(`${userGuess} is not`)
-        console.log(guessedLetters.push[userGuess]);
+    } else if (guessesLeft === 0) {
+        console.log('you lose');
     }
+    
+    else {
+        console.log(guessesLeft--);
+        console.log(`${userGuess} is not`);
+        return guessedLetters.push(userGuess);
+    }
+
 }
+
 
